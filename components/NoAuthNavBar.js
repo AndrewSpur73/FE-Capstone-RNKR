@@ -3,14 +3,16 @@ import React from 'react';
 import Link from 'next/link';
 import {
   Navbar, Container, Nav,
+  Button,
 } from 'react-bootstrap';
+import { signOut } from '../utils/auth';
 
 export default function NoAuthNavBar() {
   return (
     <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
       <Container>
         <Link passHref href="/">
-          <Navbar.Brand>CHANGE ME</Navbar.Brand>
+          <Navbar.Brand>RNKR</Navbar.Brand>
         </Link>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
@@ -20,9 +22,10 @@ export default function NoAuthNavBar() {
               <Nav.Link>Home</Nav.Link>
             </Link>
             <Link passHref href="/delete-me">
-              <Nav.Link>Delete Me</Nav.Link>
+              <Nav.Link>FRIENDS</Nav.Link>
             </Link>
           </Nav>
+          <Button id="signOutBtn" variant="danger" onClick={signOut}>SIGN OUT</Button>
         </Navbar.Collapse>
       </Container>
     </Navbar>
