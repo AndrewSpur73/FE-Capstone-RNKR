@@ -1,18 +1,18 @@
 import { useEffect, useState } from 'react';
-import { getGames } from '../components/api/gameData';
 import { useAuth } from '../utils/context/authContext';
 import GameRankCard from '../components/cards/GameRankCard';
+import { getRanks } from '../components/api/rankData';
 
 function Home() {
-  const [games, setGames] = useState([]);
+  const [ranks, setRanks] = useState([]);
   const { user } = useAuth();
 
-  const getAllGames = () => {
-    getGames(user.uid).then(setGames);
+  const getAllRanks = () => {
+    getRanks(user.uid).then(setRanks);
   };
 
   useEffect(() => {
-    getAllGames();
+    getAllRanks();
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   return (
@@ -21,8 +21,8 @@ function Home() {
         <Button>Add A Member</Button>
       </Link> */}
       <div className="d-flex flex-wrap">
-        {games.map((game) => (
-          <GameRankCard key={game.firebaseKey} gameObj={game} onUpdate={getAllGames} />
+        {ranks.map((rank) => (
+          <GameRankCard key={rank.firebaseKey} rankObj={rank} onUpdate={getAllRanks} />
         ))}
       </div>
 

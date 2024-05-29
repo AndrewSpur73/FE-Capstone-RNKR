@@ -2,33 +2,35 @@ import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
-import { getSingleRank } from '../api/rankData';
+import deleteGameRanks from '../api/mergedData';
+import { getSingleGame } from '../api/gameData';
 // import Link from 'next/link';
 // import { deleteMember } from '../api/memberData';
 
-function GameRankCard({ gameObj }) {
-  const [rank, setRank] = useState({});
-  // const deleteThisGame = () => {
-  //   if (window.confirm(`Delete ${memberObj.full_name}?`)) {
-  //     deleteMember(memberObj.firebaseKey).then(() => onUpdate());
-  //   }
-  // };
+function GameRankCard({ rankObj, onUpdate }) {
+  const [game, setGame] = useState({});
 
   useEffect(() => {
-    getSingleRank(gameObj.rank_id).then(setRank);
-  }, [gameObj]);
+    getSingleGame(rankObj.game_id).then(setGame);
+  }, [rankObj]);
+
+  const deleteThisGameRank = () => {
+    if (window.confirm('Delete?')) {
+      deleteGameRanks(game.game_id).then(() => onUpdate());
+    }
+  };
 
   return (
     <Card style={{ width: '18rem', margin: '10px' }}>
-      <Card.Img variant="top" src={gameObj.image} alt={gameObj.game_name} style={{ height: '400px' }} />
+      <Card.Img variant="top" src={game.image} alt={game.game_name} style={{ height: '400px' }} />
       <Card.Body>
-        <Card.Title>{gameObj.game_name}</Card.Title>
-        <Card.Title>{rank?.rank_name}</Card.Title>
+        <Card.Title>{game.game_name}</Card.Title>
+        <Card.Title>{rankObj.rank_name}</Card.Title>
         {/* <Link href={`/member/edit/${gameObj.firebaseKey}`} passHref>
-          <Button variant="info">EDIT</Button>
+          <Button variant="info">Edit Rank Info</Button>
         </Link> */}
-        <Button variant="danger" className="m-2">
-          DELETE
+        <Button variant="danger" onClick={deleteThisGameRank} className="m-2">
+          Delete Rank
         </Button>
       </Card.Body>
     </Card>
@@ -36,14 +38,15 @@ function GameRankCard({ gameObj }) {
 }
 
 GameRankCard.propTypes = {
-  gameObj: PropTypes.shape({
+  rankObj: PropTypes.shape({
     image: PropTypes.string,
     game_name: PropTypes.string,
     rank_id: PropTypes.string,
     description: PropTypes.string,
-    firebaseKey: PropTypes.string,
+    rank_name: PropTypes.string,
+    game_id: PropTypes.string,
   }).isRequired,
-  // onUpdate: PropTypes.func.isRequired,
+  onUpdate: PropTypes.func.isRequired,
 };
 
 export default GameRankCard;

@@ -14,7 +14,7 @@ const getRanks = (uid) => new Promise((resolve, reject) => {
     .catch(reject);
 });
 
-const deleteRanks = (firebaseKey) => new Promise((resolve, reject) => {
+const deleteRank = (firebaseKey) => new Promise((resolve, reject) => {
   fetch(`${endpoint}/rank/${firebaseKey}.json`, {
     method: 'DELETE',
     headers: {
@@ -68,6 +68,6 @@ export {
   getRanks,
   createRank,
   updateRank,
-  deleteRanks,
+  deleteRank,
   getSingleRank,
 };

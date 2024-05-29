@@ -14,7 +14,7 @@ const getGames = (uid) => new Promise((resolve, reject) => {
     .catch(reject);
 });
 
-const deleteGames = (firebaseKey) => new Promise((resolve, reject) => {
+const deleteSingleGame = (firebaseKey) => new Promise((resolve, reject) => {
   fetch(`${endpoint}/game/${firebaseKey}.json`, {
     method: 'DELETE',
     headers: {
@@ -64,8 +64,8 @@ const updateGame = (payload) => new Promise((resolve, reject) => {
     .catch(reject);
 });
 
-const getGamesByRank = (firebaseKey) => new Promise((resolve, reject) => {
-  fetch(`${endpoint}/game.json?orderBy="rank_id"&equalTo="${firebaseKey}"`, {
+const getGameRanks = (firebaseKey) => new Promise((resolve, reject) => {
+  fetch(`${endpoint}/rank.json?orderBy="game_id"&equalTo="${firebaseKey}"`, {
     method: 'GET',
     headers: {
       'Content-Type': 'application/json',
@@ -80,7 +80,7 @@ export {
   getGames,
   createGame,
   updateGame,
-  deleteGames,
+  deleteSingleGame,
   getSingleGame,
-  getGamesByRank,
+  getGameRanks,
 };
