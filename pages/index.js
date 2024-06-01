@@ -12,6 +12,7 @@ function Home() {
   };
 
   useEffect(() => {
+    console.warn(ranks);
     getAllRanks();
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);

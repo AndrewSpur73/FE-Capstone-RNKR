@@ -1,5 +1,4 @@
 import { clientCredentials } from '../../utils/client';
-import { getSingleGame } from './gameData';
 
 const endpoint = clientCredentials.databaseURL;
 
@@ -65,19 +64,10 @@ const updateRank = (payload) => new Promise((resolve, reject) => {
     .catch(reject);
 });
 
-// eslint-disable-next-line camelcase
-const getGameRankDetails = async (rank_id) => {
-  const rank = await getSingleRank(rank_id);
-  const game = await getSingleGame(rank.game_id);
-
-  return { ...rank, game };
-};
-
 export {
   getRanks,
   createRank,
   updateRank,
   deleteRank,
   getSingleRank,
-  getGameRankDetails,
 };

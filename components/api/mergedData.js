@@ -12,20 +12,6 @@ const deleteGameRanks = (game_id) => new Promise((resolve, reject) => {
   }).catch((error) => reject(error));
 });
 
-// const viewGameDetails = (gameId) => new Promise((resolve, reject) => {
-//   Promise.all([getSingleGame(gameId), getGameRanks(gameId)])
-//     .then(([gameObject, gameRanksArray]) => {
-//       resolve({ ...gameObject, ranks: gameRanksArray });
-//     }).catch((error) => reject(error));
-// });
-
-// const viewRankDetails = (rankId) => new Promise((resolve, reject) => {
-//   Promise.all([getSingleRank(rankId), getGameRanks(rankId)])
-//     .then(([rankObject, gameRanksArray]) => {
-//       resolve({ ...rankObject, games: gameRanksArray });
-//     }).catch((error) => reject(error));
-// });
-
 const viewRankDetails = (rankFirebaseKey) => new Promise((resolve, reject) => {
   getSingleRank(rankFirebaseKey)
     .then((rankObject) => {
@@ -39,6 +25,4 @@ const viewRankDetails = (rankFirebaseKey) => new Promise((resolve, reject) => {
 export {
   deleteGameRanks,
   viewRankDetails,
-  // viewGameDetails,
-  // viewRankDetails,
 };

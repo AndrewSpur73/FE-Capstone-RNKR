@@ -31,7 +31,7 @@ function GameRankCard({ rankObj, onUpdate }) {
           <Button variant="info">Edit Rank Info</Button>
         </Link> */}
         <Button variant="outline-light">
-          <Link href={`/gamerank/${rankObj.id}`} passHref>
+          <Link href={`/gamerank/${rankObj.rank_id}`} passHref>
             View
           </Link>
         </Button>
@@ -51,7 +51,6 @@ GameRankCard.propTypes = {
     description: PropTypes.string,
     rank_name: PropTypes.string,
     game_id: PropTypes.string,
-    id: PropTypes.number,
   }).isRequired,
   onUpdate: PropTypes.func.isRequired,
 };
