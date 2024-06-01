@@ -30,9 +30,9 @@ function GameRankCard({ rankObj, onUpdate }) {
         {/* <Link href={`/member/edit/${gameObj.firebaseKey}`} passHref>
           <Button variant="info">Edit Rank Info</Button>
         </Link> */}
-        <Button variant="outline-light">
+        <Button type="button" class="btn btn-primary">
           <Link href={`/gamerank/${rankObj.rank_id}`} passHref>
-            View
+            View Details
           </Link>
         </Button>
         <Button variant="danger" onClick={deleteThisGameRank} className="m-2">
