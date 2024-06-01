@@ -2,8 +2,9 @@ import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
-import deleteGameRanks from '../api/mergedData';
+import Link from 'next/link';
 import { getSingleGame } from '../api/gameData';
+import { deleteGameRanks } from '../api/mergedData';
 // import Link from 'next/link';
 // import { deleteMember } from '../api/memberData';
 
@@ -29,6 +30,11 @@ function GameRankCard({ rankObj, onUpdate }) {
         {/* <Link href={`/member/edit/${gameObj.firebaseKey}`} passHref>
           <Button variant="info">Edit Rank Info</Button>
         </Link> */}
+        <Button variant="outline-light">
+          <Link href={`/gamerank/${rankObj.id}`} passHref>
+            View
+          </Link>
+        </Button>
         <Button variant="danger" onClick={deleteThisGameRank} className="m-2">
           Delete Rank
         </Button>
@@ -45,6 +51,7 @@ GameRankCard.propTypes = {
     description: PropTypes.string,
     rank_name: PropTypes.string,
     game_id: PropTypes.string,
+    id: PropTypes.number,
   }).isRequired,
   onUpdate: PropTypes.func.isRequired,
 };

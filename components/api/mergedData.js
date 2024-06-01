@@ -1,5 +1,5 @@
-import { deleteSingleGame, getGameRanks } from './gameData';
-import { deleteRank } from './rankData';
+import { deleteSingleGame, getGameRanks, getSingleGame } from './gameData';
+import { deleteRank, getSingleRank } from './rankData';
 
 // eslint-disable-next-line camelcase
 const deleteGameRanks = (game_id) => new Promise((resolve, reject) => {
@@ -12,4 +12,33 @@ const deleteGameRanks = (game_id) => new Promise((resolve, reject) => {
   }).catch((error) => reject(error));
 });
 
-export default deleteGameRanks;
+// const viewGameDetails = (gameId) => new Promise((resolve, reject) => {
+//   Promise.all([getSingleGame(gameId), getGameRanks(gameId)])
+//     .then(([gameObject, gameRanksArray]) => {
+//       resolve({ ...gameObject, ranks: gameRanksArray });
+//     }).catch((error) => reject(error));
+// });
+
+// const viewRankDetails = (rankId) => new Promise((resolve, reject) => {
+//   Promise.all([getSingleRank(rankId), getGameRanks(rankId)])
+//     .then(([rankObject, gameRanksArray]) => {
+//       resolve({ ...rankObject, games: gameRanksArray });
+//     }).catch((error) => reject(error));
+// });
+
+const viewRankDetails = (rankFirebaseKey) => new Promise((resolve, reject) => {
+  getSingleRank(rankFirebaseKey)
+    .then((rankObject) => {
+      getSingleGame(rankObject.game_id)
+        .then((gameObject) => {
+          resolve({ gameObject, ...rankObject });
+        });
+    }).catch((error) => reject(error));
+});
+
+export {
+  deleteGameRanks,
+  viewRankDetails,
+  // viewGameDetails,
+  // viewRankDetails,
+};
