@@ -15,7 +15,7 @@ function GameRankCard({ gameObj, onUpdate }) {
     getSingleRank(gameObj.rank_id).then(setRank);
   }, [gameObj]);
 
-  const deleteThisGameRank = () => {
+  const deleteThisGame = () => {
     if (window.confirm('Delete Game?')) {
       deleteGame(gameObj.game_id).then(() => onUpdate());
     }
@@ -35,8 +35,8 @@ function GameRankCard({ gameObj, onUpdate }) {
             View Details
           </Link>
         </Button>
-        <Button variant="danger" onClick={deleteThisGameRank} className="m-2">
-          Delete Rank
+        <Button variant="danger" onClick={deleteThisGame} className="m-2">
+          Delete Game
         </Button>
       </Card.Body>
     </Card>

@@ -12,14 +12,14 @@ import { getSingleRank } from './rankData';
 //   }).catch((error) => reject(error));
 // });
 
-const viewRankDetails = (rankFirebaseKey) => new Promise((resolve, reject) => {
-  getSingleRank(rankFirebaseKey)
-    .then((rankObject) => {
-      getSingleGame(rankObject.game_id)
-        .then((gameObject) => {
-          resolve({ gameObject, ...rankObject });
+const viewGameDetails = (gameFirebaseKey) => new Promise((resolve, reject) => {
+  getSingleGame(gameFirebaseKey)
+    .then((gameObject) => {
+      getSingleRank(gameObject.rank_id)
+        .then((rankObject) => {
+          resolve({ rankObject, ...gameObject });
         });
     }).catch((error) => reject(error));
 });
 
-export default viewRankDetails;
+export default viewGameDetails;
