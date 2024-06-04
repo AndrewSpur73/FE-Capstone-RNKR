@@ -2,6 +2,7 @@
 import React, { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
 import { Button, Card } from 'react-bootstrap';
+import Link from 'next/link';
 import viewGameDetails from '../../components/api/mergedData';
 import { deleteGame } from '../../components/api/gameData';
 
@@ -30,9 +31,9 @@ export default function ViewGame() {
         <Card.Title>Current Rank: {gameDetails.rankObject?.rank_name}</Card.Title>
         <Card.Img variant="top" src={gameDetails.rankObject?.image} alt={gameDetails.rankObject?.rank_name} style={{ height: '200px', width: '200px' }} />
         <Card.Title>Description: {gameDetails.description}</Card.Title>
-        {/* <Link href={`/member/edit/${gameObj.firebaseKey}`} passHref>
-          <Button variant="info">Edit Rank Info</Button>
-        </Link> */}
+        <Link href={`/gamerank/edit/${gameDetails.game_id}`} passHref>
+          <Button type="button" class="btn btn-success">Edit Game Rank</Button>
+        </Link>
         <Button variant="danger" onClick={deleteThisGame} className="m-2">
           Delete Game
         </Button>

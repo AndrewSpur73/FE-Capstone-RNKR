@@ -27,13 +27,15 @@ function GameRankCard({ gameObj, onUpdate }) {
       <Card.Body>
         <Card.Title>{gameObj.game_name}</Card.Title>
         <Card.Title>{rank.rank_name}</Card.Title>
-        {/* <Link href={`/member/edit/${gameObj.firebaseKey}`} passHref>
-          <Button variant="info">Edit Rank Info</Button>
-        </Link> */}
+        <Link href={`/gamerank/edit/${gameObj.game_id}`} passHref>
+          <Button type="button" class="btn btn-success">Edit Game Rank</Button>
+        </Link>
+        <br />
         <Button type="button" class="btn btn-primary">
           <Link href={`/gamerank/${gameObj.game_id}`} passHref>
             View Details
           </Link>
+          <br />
         </Button>
         <Button variant="danger" onClick={deleteThisGame} className="m-2">
           Delete Game

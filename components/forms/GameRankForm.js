@@ -73,24 +73,13 @@ function GameRankForm({ obj }) {
         />
       </FloatingLabel>
 
-      {/* <FloatingLabel controlId="floatingInput3" label="Game Description" className="mb-3">
-        <Form.Control
-          type="text"
-          placeholder="Enter a description of the game"
-          name="description"
-          value={formInput.description}
-          onChange={handleChange}
-          required
-        />
-      </FloatingLabel> */}
-
       <FloatingLabel controlId="floatingSelect" label="Rank">
         <Form.Select
           aria-label="Rank"
           name="rank_id"
           onChange={handleChange}
           className="mb-3"
-          value={obj.rank_id}
+          value={formInput.rank_id}
           required
         >
           <option value="">Select a Rank</option>
@@ -120,23 +109,6 @@ function GameRankForm({ obj }) {
         />
       </FloatingLabel>
 
-      {/* A WAY TO HANDLE UPDATES FOR TOGGLES, RADIOS, ETC
-      <Form.Check
-        className="text-white mb-3"
-        type="switch"
-        id="sale"
-        name="sale"
-        label="On Sale?"
-        checked={formInput.sale}
-        onChange={(e) => {
-          setFormInput((prevState) => ({
-            ...prevState,
-            sale: e.target.checked,
-          }));
-        }}
-      /> */}
-
-      {/* SUBMIT BUTTON  */}
       <Button type="submit">{obj.game_id ? 'Update' : 'Create'} Game</Button>
     </Form>
   );
