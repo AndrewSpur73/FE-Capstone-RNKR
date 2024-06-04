@@ -3,35 +3,35 @@ import PropTypes from 'prop-types';
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import Link from 'next/link';
-import { getSingleGame } from '../api/gameData';
-import { deleteGameRanks } from '../api/mergedData';
+import { getSingleRank } from '../api/rankData';
+import { deleteGame } from '../api/gameData';
 // import Link from 'next/link';
 // import { deleteMember } from '../api/memberData';
 
-function GameRankCard({ rankObj, onUpdate }) {
-  const [game, setGame] = useState({});
+function GameRankCard({ gameObj, onUpdate }) {
+  const [rank, setRank] = useState({});
 
   useEffect(() => {
-    getSingleGame(rankObj.game_id).then(setGame);
-  }, [rankObj]);
+    getSingleRank(gameObj.rank_id).then(setRank);
+  }, [gameObj]);
 
   const deleteThisGameRank = () => {
-    if (window.confirm('Delete?')) {
-      deleteGameRanks(game.game_id).then(() => onUpdate());
+    if (window.confirm('Delete Game?')) {
+      deleteGame(gameObj.game_id).then(() => onUpdate());
     }
   };
 
   return (
     <Card style={{ width: '18rem', margin: '10px' }}>
-      <Card.Img variant="top" src={game.image} alt={game.game_name} style={{ height: '400px' }} />
+      <Card.Img variant="top" src={gameObj.image} alt={gameObj.game_name} style={{ height: '400px' }} />
       <Card.Body>
-        <Card.Title>{game.game_name}</Card.Title>
-        <Card.Title>{rankObj.rank_name}</Card.Title>
+        <Card.Title>{gameObj.game_name}</Card.Title>
+        <Card.Title>{rank.rank_name}</Card.Title>
         {/* <Link href={`/member/edit/${gameObj.firebaseKey}`} passHref>
           <Button variant="info">Edit Rank Info</Button>
         </Link> */}
         <Button type="button" class="btn btn-primary">
-          <Link href={`/gamerank/${rankObj.rank_id}`} passHref>
+          <Link href={`/gamerank/${gameObj.game_id}`} passHref>
             View Details
           </Link>
         </Button>
@@ -44,7 +44,7 @@ function GameRankCard({ rankObj, onUpdate }) {
 }
 
 GameRankCard.propTypes = {
-  rankObj: PropTypes.shape({
+  gameObj: PropTypes.shape({
     image: PropTypes.string,
     game_name: PropTypes.string,
     rank_id: PropTypes.string,

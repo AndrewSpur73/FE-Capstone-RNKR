@@ -3,18 +3,18 @@ import Link from 'next/link';
 import { Button } from 'react-bootstrap';
 import { useAuth } from '../utils/context/authContext';
 import GameRankCard from '../components/cards/GameRankCard';
-import { getRanks } from '../components/api/rankData';
+import { getGames } from '../components/api/gameData';
 
 function Home() {
-  const [ranks, setRanks] = useState([]);
+  const [games, setGames] = useState([]);
   const { user } = useAuth();
 
-  const getAllRanks = () => {
-    getRanks(user.uid).then(setRanks);
+  const getAllGames = () => {
+    getGames(user.uid).then(setGames);
   };
 
   useEffect(() => {
-    getAllRanks();
+    getAllGames();
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   return (
@@ -23,8 +23,8 @@ function Home() {
         <Button>Add A Game Rank</Button>
       </Link>
       <div className="d-flex flex-wrap">
-        {ranks.map((rank) => (
-          <GameRankCard key={rank.firebaseKey} rankObj={rank} onUpdate={getAllRanks} />
+        {games.map((game) => (
+          <GameRankCard key={game.firebaseKey} gameObj={game} onUpdate={getAllGames} />
         ))}
       </div>
 

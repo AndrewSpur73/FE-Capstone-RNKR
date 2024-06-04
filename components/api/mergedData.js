@@ -1,16 +1,16 @@
-import { deleteSingleGame, getGameRanks, getSingleGame } from './gameData';
-import { deleteRank, getSingleRank } from './rankData';
+import { getSingleGame } from './gameData';
+import { getSingleRank } from './rankData';
 
 // eslint-disable-next-line camelcase
-const deleteGameRanks = (game_id) => new Promise((resolve, reject) => {
-  getGameRanks(game_id).then((ranksArray) => {
-    const deleteRankPromises = ranksArray.map((rank) => deleteRank(rank.rank_id));
+// const deleteGameRanks = (rank_id) => new Promise((resolve, reject) => {
+//   getGameRanks(rank_id).then((gamesArray) => {
+//     const deleteGamePromises = gamesArray.map((game) => deleteGame(game.game_id));
 
-    Promise.all(deleteRankPromises).then(() => {
-      deleteSingleGame(game_id).then(resolve);
-    });
-  }).catch((error) => reject(error));
-});
+//     Promise.all(deleteGamePromises).then(() => {
+//       deleteRank(rank_id).then(resolve);
+//     });
+//   }).catch((error) => reject(error));
+// });
 
 const viewRankDetails = (rankFirebaseKey) => new Promise((resolve, reject) => {
   getSingleRank(rankFirebaseKey)
@@ -22,7 +22,4 @@ const viewRankDetails = (rankFirebaseKey) => new Promise((resolve, reject) => {
     }).catch((error) => reject(error));
 });
 
-export {
-  deleteGameRanks,
-  viewRankDetails,
-};
+export default viewRankDetails;
