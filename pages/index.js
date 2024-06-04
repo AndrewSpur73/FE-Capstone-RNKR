@@ -1,22 +1,33 @@
-// import { Button } from 'react-bootstrap'; // TODO: COMMENT IN FOR AUTH
-// import { signOut } from '../utils/auth'; // TODO: COMMENT IN FOR AUTH
-// import { useAuth } from '../utils/context/authContext'; // TODO: COMMENT IN FOR AUTH
+import { useEffect, useState } from 'react';
+import Link from 'next/link';
+import { Button } from 'react-bootstrap';
+import { useAuth } from '../utils/context/authContext';
+import GameRankCard from '../components/cards/GameRankCard';
+import { getGames } from '../components/api/gameData';
 
 function Home() {
-  // const { user } = useAuth(); // TODO: COMMENT IN FOR AUTH
+  const [games, setGames] = useState([]);
+  const { user } = useAuth();
 
-  const user = { displayName: 'Dr. T' }; // TODO: COMMENT OUT FOR AUTH
+  const getAllGames = () => {
+    getGames(user.uid).then(setGames);
+  };
+
+  useEffect(() => {
+    getAllGames();
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
   return (
-    <div
-      className="text-center d-flex flex-column justify-content-center align-content-center"
-      style={{
-        height: '90vh',
-        padding: '30px',
-        maxWidth: '400px',
-        margin: '0 auto',
-      }}
-    >
-      <h1>Hello {user.displayName}! </h1>
+    <div className="text-center my-4">
+      <Link href="/gamerank/new" passHref>
+        <Button>Add A Game Rank</Button>
+      </Link>
+      <div className="d-flex flex-wrap">
+        {games.map((game) => (
+          <GameRankCard key={game.firebaseKey} gameObj={game} onUpdate={getAllGames} />
+        ))}
+      </div>
+
     </div>
   );
 }
