@@ -52,7 +52,7 @@ const createGame = (payload) => new Promise((resolve, reject) => {
 });
 
 const updateGame = (payload) => new Promise((resolve, reject) => {
-  fetch(`${endpoint}/game/${payload.firebaseKey}.json`, {
+  fetch(`${endpoint}/game/${payload.game_id}.json`, {
     method: 'PATCH',
     headers: {
       'Content-Type': 'application/json',

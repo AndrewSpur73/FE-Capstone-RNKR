@@ -137,7 +137,7 @@ function GameRankForm({ obj }) {
       /> */}
 
       {/* SUBMIT BUTTON  */}
-      <Button type="submit">{obj.rank_id ? 'Update' : 'Create'} Book</Button>
+      <Button type="submit">{obj.game_id ? 'Update' : 'Create'} Game</Button>
     </Form>
   );
 }
