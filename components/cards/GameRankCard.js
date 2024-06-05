@@ -28,10 +28,10 @@ function GameRankCard({ gameObj, onUpdate }) {
         <Card.Title>{gameObj.game_name}</Card.Title>
         <Card.Title>{rank.rank_name}</Card.Title>
         <Link href={`/gamerank/edit/${gameObj.game_id}`} passHref>
-          <Button type="button" class="btn btn-success">Edit Game Rank</Button>
+          <Button type="button" className="btn btn-success">Edit Game Rank</Button>
         </Link>
         <br />
-        <Button type="button" class="btn btn-primary">
+        <Button type="button" className="btn btn-primary">
           <Link href={`/gamerank/${gameObj.game_id}`} passHref>
             View Details
           </Link>
