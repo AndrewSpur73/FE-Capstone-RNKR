@@ -20,7 +20,7 @@ function Home() {
   return (
     <div className="text-center my-4">
       <Link href="/gamerank/new" passHref>
-        <Button>Add A Game Rank</Button>
+        <Button style={{ width: '14rem', border: '3px solid black' }}>Add A Game Rank</Button>
       </Link>
       <div className="d-flex flex-wrap">
         {games.map((game) => (

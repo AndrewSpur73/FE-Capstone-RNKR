@@ -7,6 +7,7 @@ import GameCard from './GameCard';
 
 export default function UserCard() {
   const [games, setGames] = useState([]);
+
   const { user } = useAuth();
 
   const getAllGames = () => {
@@ -21,35 +22,54 @@ export default function UserCard() {
     <Card
       className="d-flex justify-content-center align-items-center border-black-2"
       style={{
-        width: 'auto', margin: '30px', background: 'grey', border: '5px solid black',
+        width: 'auto',
+        margin: '30px',
+        background: '#e69138',
+        border: '5px solid black',
       }}
     >
+      <Card.Title style={{
+        textAlign: 'center', textDecoration: 'underline', fontWeight: 'bolder', marginTop: '50px', fontSize: '75px',
+      }}
+      >My Profile
+      </Card.Title>
       <Card.Img
         variant="top"
         src={user.photoURL}
         alt="profile picture"
         style={{
-          height: '200px', width: '200px', marginTop: '30px', border: '5px solid black',
+          height: '200px',
+          width: '200px',
+          marginTop: '30px',
+          border: '5px solid black',
         }}
       />
       <Card.Body>
         <Card.Title className="d-flex justify-content-center align-items-center">{user.displayName}</Card.Title>
         <p className="card-text bold d-flex justify-content-center align-items-center">Last Login: {user.metadata.lastSignInTime}</p>
-        <div style={{
-          width: 'auto', margin: '50px', background: 'grey',
-        }}
-        >
-          <h2 style={{
-            textAlign: 'center', textDecoration: 'underline',
+
+        <div
+          style={{
+            width: 'auto',
+            margin: '50px',
+            background: 'grey',
           }}
-          >Saved Game Ranks
-          </h2>
-          <div className="d-flex flex-wrap">
-            {games.map((game) => (
-              <GameCard key={game.game_id} gameObj={game} onUpdate={getAllGames} />
-            ))}
-          </div>
+        />
+        <h2
+          style={{
+            textAlign: 'center',
+            textDecoration: 'underline',
+            fontWeight: 'bolder',
+          }}
+        >
+          Saved Game Ranks
+        </h2>
+        <div className="d-flex flex-wrap">
+          {games.map((game) => (
+            <GameCard key={game.game_id} gameObj={game} onUpdate={getAllGames} />
+          ))}
         </div>
+
       </Card.Body>
     </Card>
   );
