@@ -1,4 +1,4 @@
-import { clientCredentials } from '../../utils/client';
+import { clientCredentials } from '../utils/client';
 
 const endpoint = clientCredentials.databaseURL;
 
@@ -96,7 +96,7 @@ const searchGames = async (searchValue, uid) => {
 
   const filteredGames = await allGames.filter((game) => (
     game.game_name.toLowerCase().includes(searchValue)
-    // || ga.grade.toLowerCase().includes(searchValue)
+    // || game.favorite.toLowerCase().includes(searchValue)
   ));
 
   return filteredGames;

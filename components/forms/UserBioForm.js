@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import { Button, FloatingLabel, Form } from 'react-bootstrap';
 import { useAuth } from '../../utils/context/authContext';
-import { createUserBio, updateUserBio } from '../api/userData';
+import { createUserBio, updateUserBio } from '../../api/userData';
 
 const initialState = {
   bio: '',

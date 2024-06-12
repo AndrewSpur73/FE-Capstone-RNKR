@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
-import { getSingleGame } from '../../../components/api/gameData';
 import GameRankForm from '../../../components/forms/GameRankForm';
+import { getSingleGame } from '../../../api/gameData';
 
 export default function EditAuthor() {
   const [editItem, setEditItem] = useState({});

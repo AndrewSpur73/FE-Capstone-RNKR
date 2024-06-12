@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
-import { getSingleUser } from '../../components/api/userData';
 import UserBioForm from '../../components/forms/UserBioForm';
+import { getSingleUser } from '../../api/userData';
 
 export default function EditAuthor() {
   const [editItem, setEditItem] = useState({});

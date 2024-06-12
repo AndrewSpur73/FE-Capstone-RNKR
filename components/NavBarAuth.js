@@ -6,6 +6,7 @@ import {
   Image,
 } from 'react-bootstrap';
 import UserMenu from './UserMenu';
+import SearchBar from './SearchBar';
 
 export default function NavBarAuth() {
   return (
@@ -18,7 +19,7 @@ export default function NavBarAuth() {
           <Navbar.Brand style={{
             fontSize: '50px', margin: '30px',
           }}
-          >RNKR
+          >HOME
           </Navbar.Brand>
         </Link>
         <Link passHref href="/">
@@ -27,6 +28,7 @@ export default function NavBarAuth() {
       </div>
       <Navbar.Toggle aria-controls="responsive-navbar-nav" />
       <Container />
+      <SearchBar />
       <UserMenu style={{ display: 'flex', justifyContent: 'flex-end' }} />
     </Navbar>
   );

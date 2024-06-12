@@ -3,8 +3,8 @@ import { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import { Button, FloatingLabel, Form } from 'react-bootstrap';
 import { useAuth } from '../../utils/context/authContext';
-import { createGame, updateGame } from '../api/gameData';
-import { getRanks } from '../api/rankData';
+import { getRanks } from '../../api/rankData';
+import { createGame, updateGame } from '../../api/gameData';
 
 const initialState = {
   description: '',

@@ -3,8 +3,8 @@ import React, { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
 import { Button, Card } from 'react-bootstrap';
 import Link from 'next/link';
-import viewGameDetails from '../../components/api/mergedData';
-import { deleteGame } from '../../components/api/gameData';
+import { deleteGame } from '../../api/gameData';
+import viewGameDetails from '../../api/mergedData';
 
 export default function ViewGame() {
   const [gameDetails, setGameDetails] = useState({});

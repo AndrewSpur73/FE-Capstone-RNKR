@@ -2,8 +2,9 @@
 import React, { useEffect, useState } from 'react';
 import { Card } from 'react-bootstrap';
 import { useAuth } from '../../utils/context/authContext';
-import { getGames } from '../api/gameData';
+
 import GameCard from './GameCard';
+import { getGames } from '../../api/gameData';
 
 export default function UserCard() {
   const [games, setGames] = useState([]);

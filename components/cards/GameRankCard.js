@@ -3,8 +3,9 @@ import PropTypes from 'prop-types';
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import Link from 'next/link';
-import { getSingleRank } from '../api/rankData';
-import { deleteGame, updateGame } from '../api/gameData';
+import { getSingleRank } from '../../api/rankData';
+import { deleteGame, updateGame } from '../../api/gameData';
+
 // import Link from 'next/link';
 // import { deleteMember } from '../api/memberData';
 
