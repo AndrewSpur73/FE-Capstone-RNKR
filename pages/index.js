@@ -20,9 +20,9 @@ function Home() {
   return (
     <div className="text-center my-4">
       <Link href="/gamerank/new" passHref>
-        <Button style={{ width: '14rem', border: '3px solid black' }}>Add A Game Rank</Button>
+        <Button style={{ width: '14rem', border: '3px solid black', marginBottom: '50px' }}>Add A Game Rank</Button>
       </Link>
-      <div className="d-flex flex-wrap">
+      <div className="d-flex flex-wrap justify-content-center">
         {games.map((game) => (
           <GameRankCard key={game.game_id} gameObj={game} onUpdate={getAllGames} />
         ))}

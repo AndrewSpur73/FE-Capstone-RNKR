@@ -25,7 +25,8 @@ export default function UserCard() {
         width: 'auto',
         margin: '30px',
         background: '#e69138',
-        border: '5px solid black',
+        border: '15px solid black',
+        fontWeight: 'bolder',
       }}
     >
       <Card.Title style={{

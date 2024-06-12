@@ -91,6 +91,17 @@ const favoriteGames = (firebaseKey) => new Promise((resolve, reject) => {
     .catch(reject);
 });
 
+const searchGames = async (searchValue, uid) => {
+  const allGames = await getGames(uid);
+
+  const filteredGames = await allGames.filter((game) => (
+    game.game_name.toLowerCase().includes(searchValue)
+    // || ga.grade.toLowerCase().includes(searchValue)
+  ));
+
+  return filteredGames;
+};
+
 export {
   getGames,
   createGame,
@@ -99,4 +110,5 @@ export {
   getSingleGame,
   getGameRanks,
   favoriteGames,
+  searchGames,
 };
