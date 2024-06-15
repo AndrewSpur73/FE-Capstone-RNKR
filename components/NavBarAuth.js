@@ -17,13 +17,16 @@ export default function NavBarAuth() {
         </Link>
         <Link passHref href="/">
           <Navbar.Brand style={{
-            fontSize: '50px', margin: '30px',
+            fontSize: '50px', marginLeft: '30px', textDecoration: 'underline',
           }}
           >HOME
           </Navbar.Brand>
         </Link>
         <Link passHref href="/">
-          <Navbar.Brand style={{ fontSize: '50px' }}>FRIENDS</Navbar.Brand>
+          <Navbar.Brand style={{ fontSize: '50px', textDecoration: 'underline', marginLeft: '30px' }}>FRIENDS</Navbar.Brand>
+        </Link>
+        <Link passHref href="/gamerank/new">
+          <Navbar.Brand style={{ fontSize: '50px', textDecoration: 'underline', marginLeft: '30px' }}>NEW GAME RANK</Navbar.Brand>
         </Link>
       </div>
       <Navbar.Toggle aria-controls="responsive-navbar-nav" />

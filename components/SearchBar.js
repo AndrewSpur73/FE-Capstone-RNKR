@@ -25,7 +25,7 @@ export default function SearchBar() {
   };
 
   return (
-    <Form className="d-flex" onSubmit={handleSubmit}>
+    <Form className="d-flex" onSubmit={handleSubmit} style={{ height: '50px', width: '200px' }}>
       <Form.Control
         type="search"
         key="firebaseKey"
