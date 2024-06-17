@@ -1,9 +1,11 @@
 import { useEffect, useState } from 'react';
+import Link from 'next/link';
+import { Button } from 'react-bootstrap';
 import { useAuth } from '../utils/context/authContext';
 import GameRankCard from '../components/cards/GameRankCard';
 import { getGames } from '../api/gameData';
 
-function Home() {
+function GameLibrary() {
   const [games, setGames] = useState([]);
   const { user } = useAuth();
 
@@ -17,16 +19,20 @@ function Home() {
   }, []);
   return (
     <div className="text-center my-4">
-      <h1 style={{ fontSize: '100px', marginBottom: '50px' }}>MY CURRENT RANKS</h1>
-      <div className="d-flex flex-wrap justify-content-center">
-        {games
-          .filter((game) => game.ranked) // Filter games where ranked is true
-          .map((game) => (
-            <GameRankCard key={game.game_id} gameObj={game} onUpdate={() => {}} />
-          ))}
+      <Link href="/gamerank/new" passHref>
+        <Button style={{
+          height: '60px', width: '1000px', margin: '50px', fontSize: '30px',
+        }}
+        >Add A Game
+        </Button>
+      </Link>
+      <div className="d-flex flex-wrap">
+        {games.map((game) => (
+          <GameRankCard key={game.firebaseKey} gameObj={game} onUpdate={getAllGames} />
+        ))}
       </div>
     </div>
   );
 }
 
-export default Home;
+export default GameLibrary;

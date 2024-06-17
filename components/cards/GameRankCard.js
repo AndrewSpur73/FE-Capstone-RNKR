@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
@@ -6,10 +6,8 @@ import Link from 'next/link';
 import { getSingleRank } from '../../api/rankData';
 import { deleteGame, updateGame } from '../../api/gameData';
 
-// import Link from 'next/link';
-// import { deleteMember } from '../api/memberData';
-
-function GameRankCard({ gameObj, onUpdate }) {
+function GameRankCard({ gameObj: initialGameObj, onUpdate }) {
+  const [gameObj, setGameObj] = useState(initialGameObj);
   const [rank, setRank] = useState({});
 
   useEffect(() => {
@@ -17,16 +15,46 @@ function GameRankCard({ gameObj, onUpdate }) {
   }, [gameObj]);
 
   const toggleFavorite = () => {
-    if (gameObj.favorite) {
-      updateGame({ ...gameObj, favorite: false }).then(onUpdate);
-    } else {
-      updateGame({ ...gameObj, favorite: true }).then(onUpdate);
-    }
+    const updatedFavorite = !gameObj.favorite; // Toggle the local favorite state
+
+    setGameObj((prevGameObj) => ({
+      ...prevGameObj,
+      favorite: updatedFavorite,
+    }));
+
+    // Update Firebase
+    updateGame({ ...gameObj, favorite: updatedFavorite })
+      .then(() => {
+        onUpdate();
+      })
+      .catch((error) => {
+        // Handle error and revert UI state if needed
+        console.error('Error updating favorite status:', error);
+        // Revert UI state in case of error
+        setGameObj((prevGameObj) => ({
+          ...prevGameObj,
+          favorite: !updatedFavorite,
+        }));
+      });
   };
+
+  // const deleteThisGame = () => {
+  //   if (window.confirm('Delete Game?')) {
+  //     deleteGame(gameObj.game_id).then(() => onUpdate());
+  //   }
+  // };
 
   const deleteThisGame = () => {
     if (window.confirm('Delete Game?')) {
-      deleteGame(gameObj.game_id).then(() => onUpdate());
+      deleteGame(gameObj.game_id)
+        .then(() => {
+          // If successful, update the game list or notify parent component
+          onUpdate();
+        })
+        .catch((error) => {
+          console.error('Error deleting game:', error);
+          // Handle error if necessary
+        });
     }
   };
 
@@ -36,7 +64,7 @@ function GameRankCard({ gameObj, onUpdate }) {
       <Card.Body className="d-flex flex-column" style={{ backgroundColor: 'grey' }}>
         <Card.Title style={{ fontWeight: 'bolder' }}>{gameObj.game_name}</Card.Title>
         <Card.Title><Button style={{ backgroundColor: 'grey', border: 'grey' }} onClick={toggleFavorite}><span>{gameObj.favorite ? ' 💙' : ' 🤍'}</span></Button></Card.Title>
-        <Card.Title style={{ fontWeight: 'bolder' }}>Current Rank: {rank.rank_name}</Card.Title>
+        <Card.Title style={{ fontWeight: 'bolder' }}>{rank?.rank_name ? `Current Rank: ${rank.rank_name}` : ' '}</Card.Title>
         <Link href={`/gamerank/edit/${gameObj.game_id}`} passHref>
           <Button
             style={{
@@ -44,7 +72,7 @@ function GameRankCard({ gameObj, onUpdate }) {
             }}
             type="button"
             className="btn btn-success"
-          >Edit Game Rank
+          >Edit Game
           </Button>
         </Link>
         <br />

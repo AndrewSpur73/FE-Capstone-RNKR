@@ -25,13 +25,13 @@ export default function UserCard() {
       style={{
         width: 'auto',
         margin: '30px',
-        background: '#e69138',
+        background: '#483f52',
         border: '15px solid black',
         fontWeight: 'bolder',
       }}
     >
       <Card.Title style={{
-        textAlign: 'center', textDecoration: 'underline', fontWeight: 'bolder', marginTop: '50px', fontSize: '75px',
+        textAlign: 'center', textDecoration: 'underline', fontWeight: 'bolder', marginTop: '50px', fontSize: '75px', color: '#e87021',
       }}
       >My Profile
       </Card.Title>
@@ -46,7 +46,7 @@ export default function UserCard() {
           border: '5px solid black',
         }}
       />
-      <Card.Body>
+      <Card.Body style={{ color: '#e87021' }}>
         <Card.Title className="d-flex justify-content-center align-items-center">{user.displayName}</Card.Title>
         <p className="card-text bold d-flex justify-content-center align-items-center">Last Login: {user.metadata.lastSignInTime}</p>
 

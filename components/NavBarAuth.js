@@ -15,15 +15,8 @@ export default function NavBarAuth() {
         <Link passHref href="/">
           <Image src="/images/logo.png" alt="RNKR" height={100} width={100} className="cursor-pointer" style={{ marginLeft: '100px' }} />
         </Link>
-        <Link passHref href="/">
-          <Navbar.Brand style={{
-            fontSize: '50px', marginLeft: '30px', textDecoration: 'underline',
-          }}
-          >HOME
-          </Navbar.Brand>
-        </Link>
-        <Link passHref href="/">
-          <Navbar.Brand style={{ fontSize: '50px', textDecoration: 'underline', marginLeft: '30px' }}>FRIENDS</Navbar.Brand>
+        <Link passHref href="/gameLibrary">
+          <Navbar.Brand style={{ fontSize: '50px', textDecoration: 'underline', marginLeft: '30px' }}>GAME LIBRARY</Navbar.Brand>
         </Link>
         <Link passHref href="/gamerank/new">
           <Navbar.Brand style={{ fontSize: '50px', textDecoration: 'underline', marginLeft: '30px' }}>NEW GAME RANK</Navbar.Brand>

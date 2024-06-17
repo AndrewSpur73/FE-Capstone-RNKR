@@ -9,6 +9,10 @@ body {
   padding: 0;
   margin: 0;
   font-family: "Oswald";
+  background-color: #483f52;
+  background-image: url(https://images.hdqwalls.com/download/abstract-bright-orange-gn-3440x1440.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 a {
@@ -18,8 +22,4 @@ a {
 
 * {
   box-sizing: border-box;
-}
-
-body {
-  background-color: #37474f;
 }

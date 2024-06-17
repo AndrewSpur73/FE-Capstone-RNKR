@@ -10,6 +10,8 @@ const initialState = {
   description: '',
   image: '',
   game_name: '',
+  favorite: false,
+  ranked: false,
 };
 
 function GameRankForm({ obj }) {
@@ -41,7 +43,7 @@ function GameRankForm({ obj }) {
       createGame(payload).then(({ name }) => {
         const patchPayload = { game_id: name };
         updateGame(patchPayload).then(() => {
-          router.push('/');
+          router.back();
         });
       });
     }
@@ -62,6 +64,21 @@ function GameRankForm({ obj }) {
         />
       </FloatingLabel>
 
+      <Form.Check
+        className="text-white mb-3"
+        type="switch"
+        id="favorite"
+        name="favorite"
+        label="Favorite Game?"
+        checked={formInput.favorite}
+        onChange={(e) => {
+          setFormInput((prevState) => ({
+            ...prevState,
+            favorite: e.target.checked,
+          }));
+        }}
+      />
+
       <FloatingLabel controlId="floatingInput2" label="Game Image" className="mb-3">
         <Form.Control
           type="url"
@@ -71,29 +88,6 @@ function GameRankForm({ obj }) {
           onChange={handleChange}
           required
         />
-      </FloatingLabel>
-
-      <FloatingLabel controlId="floatingSelect" label="Rank">
-        <Form.Select
-          aria-label="Rank"
-          name="rank_id"
-          onChange={handleChange}
-          className="mb-3"
-          value={formInput.rank_id}
-          required
-        >
-          <option value="">Select a Rank</option>
-          {
-            ranks.map((rank) => (
-              <option
-                key={rank.rank_id}
-                value={rank.rank_id}
-              >
-                {rank.rank_name}
-              </option>
-            ))
-          }
-        </Form.Select>
       </FloatingLabel>
 
       {/* DESCRIPTION TEXTAREA  */}
@@ -109,8 +103,44 @@ function GameRankForm({ obj }) {
         />
       </FloatingLabel>
 
+      <Form.Check
+        className="text-white mb-3"
+        type="switch"
+        id="ranked"
+        name="ranked"
+        label="Ranked Game?"
+        checked={formInput.ranked}
+        onChange={(e) => {
+          setFormInput((prevState) => ({
+            ...prevState,
+            ranked: e.target.checked,
+          }));
+        }}
+      />
+
+      {formInput.ranked && (
+      <FloatingLabel controlId="floatingSelect" label="Rank">
+        <Form.Select
+          aria-label="Rank"
+          name="rank_id"
+          onChange={handleChange}
+          className="mb-3"
+          value={formInput.rank_id}
+          required
+        >
+          <option value="">Select a Rank</option>
+          {ranks.map((rank) => (
+            <option key={rank.rank_id} value={rank.rank_id}>
+              {rank.rank_name}
+            </option>
+          ))}
+        </Form.Select>
+      </FloatingLabel>
+      )}
+
       <Button type="submit">{obj.game_id ? 'Update' : 'Create'} Game</Button>
     </Form>
+
   );
 }
 
