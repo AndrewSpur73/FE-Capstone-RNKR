@@ -66,7 +66,7 @@ export default function UserCard() {
         >
           Saved Game Ranks
         </h2>
-        <div className="d-flex flex-wrap">
+        <div className="d-flex flex-wrap justify-content-center">
           {games.map((game) => (
             <GameCard key={game.game_id} gameObj={game} onUpdate={getAllGames} />
           ))}

@@ -6,8 +6,7 @@ import Link from 'next/link';
 import { getSingleRank } from '../../api/rankData';
 import { deleteGame, updateGame } from '../../api/gameData';
 
-function GameRankCard({ gameObj: initialGameObj, onUpdate }) {
-  const [gameObj, setGameObj] = useState(initialGameObj);
+function GameRankCard({ gameObj, onUpdate }) {
   const [rank, setRank] = useState({});
 
   useEffect(() => {
@@ -15,34 +14,12 @@ function GameRankCard({ gameObj: initialGameObj, onUpdate }) {
   }, [gameObj]);
 
   const toggleFavorite = () => {
-    const updatedFavorite = !gameObj.favorite; // Toggle the local favorite state
-
-    setGameObj((prevGameObj) => ({
-      ...prevGameObj,
-      favorite: updatedFavorite,
-    }));
-
-    // Update Firebase
-    updateGame({ ...gameObj, favorite: updatedFavorite })
-      .then(() => {
-        onUpdate();
-      })
-      .catch((error) => {
-        // Handle error and revert UI state if needed
-        console.error('Error updating favorite status:', error);
-        // Revert UI state in case of error
-        setGameObj((prevGameObj) => ({
-          ...prevGameObj,
-          favorite: !updatedFavorite,
-        }));
-      });
+    if (gameObj.favorite) {
+      updateGame({ ...gameObj, favorite: false }).then(onUpdate);
+    } else {
+      updateGame({ ...gameObj, favorite: true }).then(onUpdate);
+    }
   };
-
-  // const deleteThisGame = () => {
-  //   if (window.confirm('Delete Game?')) {
-  //     deleteGame(gameObj.game_id).then(() => onUpdate());
-  //   }
-  // };
 
   const deleteThisGame = () => {
     if (window.confirm('Delete Game?')) {

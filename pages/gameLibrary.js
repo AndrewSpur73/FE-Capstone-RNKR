@@ -19,6 +19,7 @@ function GameLibrary() {
   }, []);
   return (
     <div className="text-center my-4">
+      <h1 style={{ fontSize: '100px', marginBottom: '50px' }}>GAME LIBRARY</h1>
       <Link href="/gamerank/new" passHref>
         <Button style={{
           height: '60px', width: '1000px', margin: '50px', fontSize: '30px',
@@ -28,7 +29,7 @@ function GameLibrary() {
       </Link>
       <div className="d-flex flex-wrap">
         {games.map((game) => (
-          <GameRankCard key={game.firebaseKey} gameObj={game} onUpdate={getAllGames} />
+          <GameRankCard key={game.game_id} gameObj={game} onUpdate={getAllGames} />
         ))}
       </div>
     </div>

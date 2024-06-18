@@ -17,12 +17,12 @@ function Home() {
   }, []);
   return (
     <div className="text-center my-4">
-      <h1 style={{ fontSize: '100px', marginBottom: '50px' }}>MY CURRENT RANKS</h1>
+      <h1 style={{ fontSize: '100px', marginBottom: '100px' }}>CURRENT RANKS</h1>
       <div className="d-flex flex-wrap justify-content-center">
         {games
           .filter((game) => game.ranked) // Filter games where ranked is true
           .map((game) => (
-            <GameRankCard key={game.game_id} gameObj={game} onUpdate={() => {}} />
+            <GameRankCard key={game.game_id} gameObj={game} onUpdate={getAllGames} />
           ))}
       </div>
     </div>
