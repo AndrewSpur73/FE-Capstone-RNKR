@@ -42,7 +42,7 @@ https://www.loom.com/share/1edd9c46ba504cdd92536cbb4139d9e7?sid=33e97cee-1000-4c
 <img width="1148" alt="Your Alt" src="https://snipboard.io/IDWgrB.jpg">
 <em>View your User Profile</em>
 
-## Try Plated Out For Yourself
+## Try Rnkr Out For Yourself
 
 1. Set up a [Firebase](https://firebase.google.com/) project - Here's how: [Firebase Setup & Authentication](https://www.loom.com/share/163ffe1539bb482196efa713ed6231e9)
 
