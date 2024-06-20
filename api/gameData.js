@@ -96,7 +96,6 @@ const searchGames = async (searchValue, uid) => {
 
   const filteredGames = await allGames.filter((game) => (
     game.game_name.toLowerCase().includes(searchValue)
-    // || game.favorite.toLowerCase().includes(searchValue)
   ));
 
   return filteredGames;

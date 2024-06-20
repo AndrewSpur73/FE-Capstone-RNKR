@@ -1,9 +1,6 @@
 import PropTypes from 'prop-types';
 import Card from 'react-bootstrap/Card';
 
-// import Link from 'next/link';
-// import { deleteMember } from '../api/memberData';
-
 function GameCard({ gameObj }) {
   return (
     <Card style={{ width: '200px', margin: '10px', border: '3px solid black' }}>

@@ -45,7 +45,6 @@ function GameRankCard({ gameObj, onUpdate }) {
         <Card.Title style={{ fontWeight: 'bolder', fontSize: '25px' }}>{rank?.rank_name ? `Current Rank: ${rank.rank_name}` : 'Current Rank: N/A '}</Card.Title>
         <div style={{
           margin: '10px',
-          // display: 'flex', flexDirection: 'column', alignItems: '', margin: 'auto', paddingBottom: '10px', justifyContent: 'center',
         }}
         >
           <Link href={`/gamerank/edit/${gameObj.game_id}`} passHref>

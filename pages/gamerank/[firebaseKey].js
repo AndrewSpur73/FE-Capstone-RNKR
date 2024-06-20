@@ -18,7 +18,6 @@ export default function ViewGame() {
     }
   };
 
-  // TODO: make call to API layer to get the data
   useEffect(() => {
     viewGameDetails(firebaseKey).then(setGameDetails);
   }, []);
