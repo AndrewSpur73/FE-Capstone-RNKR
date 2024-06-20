@@ -25,10 +25,10 @@ export default function SearchBar() {
   };
 
   return (
-    <Form className="d-flex" onSubmit={handleSubmit} style={{ height: '50px', width: '200px' }}>
+    <Form className="d-flex" onSubmit={handleSubmit} style={{ height: '50px', width: '400px' }}>
       <Form.Control
         type="search"
-        key="firebaseKey"
+        key="game_id"
         placeholder="Search"
         className="me-2"
         aria-label="Search"

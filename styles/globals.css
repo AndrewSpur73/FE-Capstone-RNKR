@@ -9,10 +9,7 @@ body {
   padding: 0;
   margin: 0;
   font-family: "Oswald";
-  background-color: #483f52;
-  background-image: url(https://images.hdqwalls.com/download/abstract-bright-orange-gn-3440x1440.jpg);
-  background-repeat: no-repeat;
-  background-size: cover;
+  background-color: black;
 }
 
 a {
@@ -22,4 +19,33 @@ a {
 
 * {
   box-sizing: border-box;
+}
+
+.container {
+  margin: 0px;
+  max-width: 100%;
+
+}
+
+
+.searchbar{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-right: 0;
+  margin-left: auto;
+}
+
+.content{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  
+}
+
+.library{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  max-width: auto;
 }

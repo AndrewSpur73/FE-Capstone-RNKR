@@ -27,7 +27,7 @@ export default function Search() {
         {searchResults.length === 0
           ? (<h1>No games found.</h1>)
           : (searchResults.map((results) => (
-            <GameRankCard key={results.firebaseKey} gameObj={results} onUpdate={getSearchResults} />)))}
+            <GameRankCard key={results.game_id} gameObj={results} onUpdate={getSearchResults} />)))}
       </div>
     </div>
   );

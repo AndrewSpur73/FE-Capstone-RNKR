@@ -23,15 +23,16 @@ export default function UserCard() {
     <Card
       className="d-flex justify-content-center align-items-center border-black-2"
       style={{
-        width: 'auto',
-        margin: '30px',
+        width: '1200px',
+        margin: 'auto',
+        marginTop: '30px',
         background: '#483f52',
-        border: '15px solid black',
+        border: '15px solid #ffa500',
         fontWeight: 'bolder',
       }}
     >
       <Card.Title style={{
-        textAlign: 'center', textDecoration: 'underline', fontWeight: 'bolder', marginTop: '50px', fontSize: '75px', color: '#e87021',
+        textAlign: 'center', textDecoration: 'underline', fontWeight: 'bolder', marginTop: '50px', fontSize: '75px', color: 'Black',
       }}
       >My Profile
       </Card.Title>
@@ -46,7 +47,7 @@ export default function UserCard() {
           border: '5px solid black',
         }}
       />
-      <Card.Body style={{ color: '#e87021' }}>
+      <Card.Body style={{ color: 'black' }}>
         <Card.Title className="d-flex justify-content-center align-items-center">{user.displayName}</Card.Title>
         <p className="card-text bold d-flex justify-content-center align-items-center">Last Login: {user.metadata.lastSignInTime}</p>
 
@@ -64,7 +65,7 @@ export default function UserCard() {
             fontWeight: 'bolder',
           }}
         >
-          Saved Game Ranks
+          Saved Games
         </h2>
         <div className="d-flex flex-wrap justify-content-center">
           {games.map((game) => (

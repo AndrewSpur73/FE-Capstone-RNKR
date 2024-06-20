@@ -36,38 +36,49 @@ function GameRankCard({ gameObj, onUpdate }) {
   };
 
   return (
-    <Card style={{ width: '19rem', margin: '10px', border: '3px solid black' }}>
-      <Card.Img variant="top" src={gameObj.image} alt={gameObj.game_name} style={{ height: '400px', borderBottom: '3px solid black' }} />
+    <Card style={{ width: '25rem', margin: '10px', border: '10px solid #ffa500' }}>
+      <Card.Img variant="top" src={gameObj.image} alt={gameObj.game_name} style={{ height: '400px', borderBottom: '5px solid black' }} />
       <Card.Body className="d-flex flex-column" style={{ backgroundColor: 'grey' }}>
-        <Card.Title style={{ fontWeight: 'bolder' }}>{gameObj.game_name}</Card.Title>
-        <Card.Title><Button style={{ backgroundColor: 'grey', border: 'grey' }} onClick={toggleFavorite}><span>{gameObj.favorite ? ' 💙' : ' 🤍'}</span></Button></Card.Title>
-        <Card.Title style={{ fontWeight: 'bolder' }}>{rank?.rank_name ? `Current Rank: ${rank.rank_name}` : ' '}</Card.Title>
-        <Link href={`/gamerank/edit/${gameObj.game_id}`} passHref>
+        <Card.Title style={{ fontWeight: 'bolder', fontSize: '25px' }}>{gameObj.game_name}</Card.Title>
+        <Card.Title style={{ fontWeight: 'bolder', fontSize: '23px' }}>Console Type: {gameObj.console}</Card.Title>
+        <Card.Title><Button style={{ backgroundColor: 'grey', border: 'grey', fontSize: '30px' }} onClick={toggleFavorite}><span>{gameObj.favorite ? ' 💙' : ' 🤍'}</span></Button></Card.Title>
+        <Card.Title style={{ fontWeight: 'bolder', fontSize: '25px' }}>{rank?.rank_name ? `Current Rank: ${rank.rank_name}` : 'Current Rank: N/A '}</Card.Title>
+        <div style={{
+          margin: '10px',
+          // display: 'flex', flexDirection: 'column', alignItems: '', margin: 'auto', paddingBottom: '10px', justifyContent: 'center',
+        }}
+        >
+          <Link href={`/gamerank/edit/${gameObj.game_id}`} passHref>
+            <Button
+              style={{
+                width: '20rem', border: '3px solid black', margin: '', marginTop: '', fontSize: '25px',
+              }}
+              type="button"
+              className="btn btn-success"
+            >Edit Game
+            </Button>
+          </Link>
           <Button
             style={{
-              width: '14rem', border: '3px solid black', margin: 'auto', marginTop: '25px',
+              width: '20rem', border: '3px solid black', marginTop: '10px', fontSize: '25px',
             }}
             type="button"
-            className="btn btn-success"
-          >Edit Game
+            className="btn btn-primary"
+          >
+            <Link href={`/gamerank/${gameObj.game_id}`} passHref>
+              View Details
+            </Link>
           </Button>
-        </Link>
-        <br />
-        <Button style={{ width: '14rem', border: '3px solid black', margin: 'auto' }} type="button" className="btn btn-primary">
-          <Link href={`/gamerank/${gameObj.game_id}`} passHref>
-            View Details
-          </Link>
-          <br />
-        </Button>
-        <Button
-          style={{
-            width: '14rem', border: '3px solid black', margin: 'auto', marginTop: '25px',
-          }}
-          variant="danger"
-          onClick={deleteThisGame}
-        >
-          Delete Game
-        </Button>
+          <Button
+            style={{
+              width: '20rem', border: '3px solid black', marginTop: '10px', fontSize: '25px',
+            }}
+            variant="danger"
+            onClick={deleteThisGame}
+          >
+            Delete Game
+          </Button>
+        </div>
       </Card.Body>
     </Card>
   );
@@ -82,6 +93,7 @@ GameRankCard.propTypes = {
     rank_name: PropTypes.string,
     game_id: PropTypes.string,
     favorite: PropTypes.bool,
+    console: PropTypes.string,
   }).isRequired,
   onUpdate: PropTypes.func.isRequired,
 };

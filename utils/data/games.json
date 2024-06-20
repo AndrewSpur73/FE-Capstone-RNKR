@@ -6,6 +6,7 @@
     "description": "Rocket League is a video game the combines arcade-style soccer and driving games. You play by controlling rocket-powered vehicles, which you can use to score goals with a giant soccer ball. Gameplay is energetic and chaotic as the cars can flip and fly in all directions.",
     "game_id": "-NykM89-0xI6sawvCk0k",
     "favorite": true,
+    "console": "PC",
     "ranked": true,
     "rank_id": "-NykUEzY3FTkSuqZRjzA"
   },
@@ -16,6 +17,7 @@
     "description": "Free-to-play shooter featuring 30+ epic heroes, each with game-changing abilities. Choose your hero, group up with your friends and battle across all-new maps and modes in the ultimate team-based shooter.",
     "game_id": "-NykM891UB-P8nVfz2Tv",
     "favorite": true,
+    "console": "PC",
     "ranked": true,
     "rank_id": "-NykUEzY3FTkSuqZRjzB"
   },
@@ -26,6 +28,7 @@
     "description": "League of Legends is a team-based strategy game where two teams of five powerful champions face off to destroy the other’s base. Choose from over 140 champions to make epic plays, secure kills, and take down towers as you battle your way to victory.",
     "game_id": "-NykM892mLfMNr7ySs-p",
     "favorite": false,
+    "console": "PC",
     "ranked": true,
     "rank_id": "-NykUEzZTPojKwf5-e8Q"
   },
@@ -36,6 +39,7 @@
     "description": "Elden Ring is a fantasy action role-playing game (RPG) set in a vast, dark fantasy world where players can explore and adventure at their own pace. The game was developed by FromSoftware, Inc. and released on February 25, 2022. It features a third-person perspective, interactive open world, and a multilayered story told in fragments.",
     "game_id": "-O-SBny9NV9rBzZaRHHk",
     "favorite": true,
+    "console": "PC",
     "ranked": false
   },
 "-O-cU4HELqmocUdURKfB": {
@@ -45,6 +49,7 @@
   "description": "Call of Duty: Modern Warfare III is a first-person shooter (FPS) game released in November 2023 and the direct sequel to Call of Duty: Modern Warfare II. In the game, Captain Price and Task Force 141 face off against ultranationalist war criminal Vladimir Makarov. The game features three modes: Campaign, Multiplayer, and Zombies.",
   "game_id": "-O-cU4HELqmocUdURKfB",
   "favorite": false,
+  "console": "PC",
   "ranked": false
 },
 "-O-cU_ci_uGqD3_T_VQW": {
@@ -54,6 +59,7 @@
   "description": "Minecraft is a 3D computer game where players can build anything they can imagine in a blocky world.",
   "game_id": "-O-cU_ci_uGqD3_T_VQW",
   "favorite": false,
+  "console": "PC",
   "ranked": false
 },
 "-O-cUpquIm1k4L_ipEvC": {
@@ -63,6 +69,7 @@
   "description": "Forza Horizon 5 is a racing video game set in an open world environment based in a fictional representation of Mexico.",
   "game_id": "-O-cUpquIm1k4L_ipEvC",
   "favorite": false,
+  "console": "Xbox",
   "ranked": false
 },
 "-O-cVR-xa_7PfnV_e1Es": {
@@ -72,6 +79,7 @@
   "description": "Hogwarts Legacy - Home. Hogwarts Legacy is an immersive, open-world action RPG set in the world first introduced in the Harry Potter books. For the first time, experience Hogwarts in the 1800s. Your character is a student who holds the key to an ancient secret that threatens to tear the wizarding world apart.",
   "game_id": "-O-cVR-xa_7PfnV_e1Es",
   "favorite": true,
+  "console": "PC",
   "ranked": false
 },
 "-O-cVdaJO1G74Xm7e0bZ": {
@@ -81,6 +89,7 @@
   "description": "Borderlands 3 is a first-person shooter in which players assume the role of a Vault Hunter engaging in combat missions while traversing through planets on foot and in vehicles. Players explore new planets, interact with characters, and accept missions to kill specific enemies or obtain objects/information.",
   "game_id": "-O-cVdaJO1G74Xm7e0bZ",
   "favorite": false,
+  "console": "PC",
   "ranked": false
 },
 "-O-cWA9bVkIezQIDpfQg": {
@@ -90,6 +99,7 @@
   "description": "Counter-Strike 2 is a multiplayer tactical first-person shooter, in which two teams, the Counter-Terrorists and the Terrorists, compete to complete different objectives, depending on the game mode selected.",
   "game_id": "-O-cWA9bVkIezQIDpfQg",
   "favorite": false,
+  "console": "PC",
   "ranked": true,
   "rank_id": "-NykUEzZTPojKwf5-e8Q"
 },
@@ -100,6 +110,7 @@
   "description": "Tom Clancy's Rainbow Six Siege is a first-person shooter game that emphasizes teamwork, planning, and tactical play. Players compete in 5v5 attack vs. defense matches in destructible environments, using close-quarters combat and various gadgets and weapons.",
   "game_id": "-O-cWSv8EZ25cGnJ1uTf",
   "favorite": false,
+  "console": "PC",
   "ranked": true,
   "rank_id": "-NzVz-P_n53Pd65jAXrM"
 },
@@ -110,7 +121,28 @@
   "description": "Halo Infinite is a first-person shooter. In the game's story mode, players assume the role of player character Master Chief, as he wages a war against the Banished, an alien faction.[4] Players traverse the open world Zeta Halo, fighting the Banished with a mixture of vehicles and weapons. Players also have access to special equipment, such as the Grappleshot, which pulls Chief towards foes, retrieves items, or help to traverse the terrain.",
   "game_id": "-O-cWm9mq1wccxOGDXzg",
   "favorite": false,
+  "console": "Xbox",
   "ranked": true,
   "rank_id": "-NzVz-PZeIDnhWcxWwoq"
+},
+"-O-cmPyMEbdYbt9h47Q9": {
+  "uid": "qyi6CKfn7uOqsaDpu9bazvPN1nR2",
+  "game_name": "The Last of Us",
+  "image": "data:image/jpeg;base64,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",
+  "description": "Set in the post-apocalyptic United States, the game tells the story of survivors Joel and Ellie as they work together to survive their westward journey across what remains of the country to find a possible cure for the modern fungal plague that has nearly decimated the entire human race.",
+  "game_id": "-O-cmPyMEbdYbt9h47Q9",
+  "favorite": false,
+  "console": "Playstation",
+  "ranked": false
+},
+"-O-cmk52heRxzXkvJGFt": {
+  "uid": "qyi6CKfn7uOqsaDpu9bazvPN1nR2",
+  "game_name": "God of War: Ragnarok",
+  "image": "https://image.api.playstation.com/vulcan/ap/rnd/202207/1210/4xJ8XB3bi888QTLZYdl7Oi0s.png",
+  "description": "Join Kratos and Atreus on a mythic journey for answers before Ragnarök arrives. Together, father and son must put everything on the line as they journey to each of the Nine Realms in God of War Ragnarök, the brutal and epic sequel in the action franchise.",
+  "game_id": "-O-cmk52heRxzXkvJGFt",
+  "favorite": false,
+  "console": "Playstation",
+  "ranked": false
 }
 }

@@ -15,7 +15,7 @@ export default function UserMenu() {
 
   return (
     <Dropdown align="end" navbar="true" className=" last:mt-auto">
-      <Dropdown.Toggle style={{ borderColor: '#212529' }} className="border-3 bg-transparent">
+      <Dropdown.Toggle style={{ borderColor: '#7d3422' }} className="border-3 bg-transparent">
         <img src={user.photoURL} alt={`${user.displayName}`} style={{ height: '75px', width: '75px' }} className="rounded-full" />
       </Dropdown.Toggle>
       <Dropdown.Menu className="rounded-lg">
