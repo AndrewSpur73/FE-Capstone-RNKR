@@ -26,7 +26,7 @@ export default function NavBarAuth() {
           <Navbar.Brand style={{
             fontSize: '50px', textDecoration: 'underline', marginLeft: '30px',
           }}
-          >NEW GAME RANK
+          >NEW GAME
           </Navbar.Brand>
         </Link>
       </div>
