@@ -2,7 +2,7 @@ RNKR [![Netlify Status](https://api.netlify.com/api/v1/badges/1f5a7edf-2264-44bd
 
 # Overview
 
-RNKR is an application that allows a user to save and keep up with all their games, specifically competitive ranked games, across all consoles. A user can save their current rank (if applicable), the console they play it on, and whether it's one of their favorite games.
+RNKR is an application that allows a user to keep up with all their games, specifically competitive ranked games, across all consoles. A user can save their current rank (if applicable), the console they play it on, and whether it's one of their favorite games.
 
 ## About the User
 - The ideal user for this application is a gamer.
