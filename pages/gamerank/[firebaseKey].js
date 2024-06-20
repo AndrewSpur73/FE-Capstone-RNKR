@@ -27,8 +27,10 @@ export default function ViewGame() {
       <Card.Img variant="top" src={gameDetails.image} alt={gameDetails.game_name} style={{ height: '400px' }} />
       <Card.Body>
         <Card.Title>Game: {gameDetails.game_name}</Card.Title>
-        <Card.Title>Current Rank: {gameDetails.rankObject?.rank_name}</Card.Title>
-        <Card.Img variant="top" src={gameDetails.rankObject?.image} alt={gameDetails.rankObject?.rank_name} style={{ height: '200px', width: '200px' }} />
+        <Card.Title>Favorite Game:  {gameDetails.favorite ? ' Yes' : ' No'}</Card.Title>
+        <Card.Title>Console: {gameDetails.console}</Card.Title>
+        <Card.Title>{gameDetails.rankObject ? `Current Rank: ${gameDetails.rankObject?.rank_name}` : '' } </Card.Title>
+        <Card.Title> {gameDetails.rankObject?.image ? <img src={gameDetails.rankObject?.image} alt={gameDetails.rankObject?.rank_name} style={{ height: '200px', width: '200px' }} /> : ''}</Card.Title>
         <Card.Title>Description: {gameDetails.description}</Card.Title>
         <Link href={`/gamerank/edit/${gameDetails.game_id}`} passHref>
           <Button type="button" className="btn btn-success">Edit Game Rank</Button>
