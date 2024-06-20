@@ -34,8 +34,10 @@ https://www.loom.com/share/1edd9c46ba504cdd92536cbb4139d9e7?sid=33e97cee-1000-4c
 <img width="1148" alt="Your Alt" src="https://snipboard.io/Jbusxw.jpg">
 <em>Easy to navigate Home Page</em>
 
+
 <img width="1148" alt="Your Alt" src="https://snipboard.io/DixyJV.jpg">
 <em>Save a New Game to your Library</em>
+
 
 <img width="1148" alt="Your Alt" src="https://snipboard.io/IDWgrB.jpg">
 <em>View your User Profile</em>
@@ -87,7 +89,7 @@ npm run dev
 10. Enjoy RNKR!
 
 ## Tech Stacks
-<div align="center">  
+<div>  
 <a href="https://reactjs.org/" target="_blank"><img style="margin: 10px" src="https://profilinator.rishav.dev/skills-assets/react-original-wordmark.svg" alt="React" height="50" /></a>  
 <a href="https://nextjs.org/" target="_blank" rel="noreferrer"> <img src="https://cdn.worldvectorlogo.com/logos/nextjs-2.svg" alt="nextjs" width="40" height="40"/>
 <a href="https://firebase.google.com/" target="_blank"><img style="margin: 10px" src="https://profilinator.rishav.dev/skills-assets/firebase.png" alt="Firebase" height="50" /></a> 
