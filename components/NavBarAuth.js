@@ -2,28 +2,39 @@
 import React from 'react';
 import Link from 'next/link';
 import {
-  Navbar, Container, Nav, Button,
+  Navbar,
+  Image,
 } from 'react-bootstrap';
-import { signOut } from '../utils/auth';
+import UserMenu from './UserMenu';
+import SearchBar from './SearchBar';
 
 export default function NavBarAuth() {
   return (
-    <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
-      <Container>
+    <Navbar collapseOnSelect expand="lg" variant="dark" style={{ fontSize: '30px', background: '#7d3422' }}>
+      <div>
         <Link passHref href="/">
-          <Navbar.Brand>RNKR</Navbar.Brand>
+          <Image src="/images/logo2.png" alt="RNKR" height={100} width={100} className="cursor-pointer" style={{ marginLeft: '50px' }} />
         </Link>
-        <Navbar.Toggle aria-controls="responsive-navbar-nav" />
-        <Navbar.Collapse id="responsive-navbar-nav">
-          <Nav className="me-auto">
-            {/* CLOSE NAVBAR ON LINK SELECTION: https://stackoverflow.com/questions/72813635/collapse-on-select-react-bootstrap-navbar-with-nextjs-not-working */}
-            <Link passHref href="/">
-              <Nav.Link>Home</Nav.Link>
-            </Link>
-            <Button variant="danger" onClick={signOut}>Sign Out</Button>
-          </Nav>
-        </Navbar.Collapse>
-      </Container>
+        <Link passHref href="/gameLibrary">
+          <Navbar.Brand style={{
+            fontSize: '50px', textDecoration: 'underline', marginLeft: '50px',
+          }}
+          >GAME LIBRARY
+          </Navbar.Brand>
+        </Link>
+        <Link passHref href="/gamerank/new">
+          <Navbar.Brand style={{
+            fontSize: '50px', textDecoration: 'underline', marginLeft: '30px',
+          }}
+          >NEW GAME RANK
+          </Navbar.Brand>
+        </Link>
+      </div>
+      <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+      <div className="searchbar">
+        <SearchBar />
+        <UserMenu />
+      </div>
     </Navbar>
   );
 }

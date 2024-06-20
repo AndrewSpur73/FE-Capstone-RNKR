@@ -1,4 +1,4 @@
-import { clientCredentials } from '../../utils/client';
+import { clientCredentials } from '../utils/client';
 
 const endpoint = clientCredentials.databaseURL;
 
@@ -76,6 +76,32 @@ const getGameRanks = (firebaseKey) => new Promise((resolve, reject) => {
     .catch(reject);
 });
 
+const favoriteGames = (firebaseKey) => new Promise((resolve, reject) => {
+  fetch(`${endpoint}/game.json?orderBy="game_id"&equalTo="${firebaseKey}"`, {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  })
+    .then((response) => response.json())
+    .then((data) => {
+      const favorites = Object.values(data).filter((item) => item.favorite);
+      resolve(favorites);
+    })
+    .catch(reject);
+});
+
+const searchGames = async (searchValue, uid) => {
+  const allGames = await getGames(uid);
+
+  const filteredGames = await allGames.filter((game) => (
+    game.game_name.toLowerCase().includes(searchValue)
+    // || game.favorite.toLowerCase().includes(searchValue)
+  ));
+
+  return filteredGames;
+};
+
 export {
   getGames,
   createGame,
@@ -83,4 +109,6 @@ export {
   deleteGame,
   getSingleGame,
   getGameRanks,
+  favoriteGames,
+  searchGames,
 };

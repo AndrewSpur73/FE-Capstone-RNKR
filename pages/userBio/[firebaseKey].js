@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
-import GameRankForm from '../../../components/forms/GameRankForm';
-import { getSingleGame } from '../../../api/gameData';
+import UserBioForm from '../../components/forms/UserBioForm';
+import { getSingleUser } from '../../api/userData';
 
 export default function EditAuthor() {
   const [editItem, setEditItem] = useState({});
@@ -10,9 +10,9 @@ export default function EditAuthor() {
   const { firebaseKey } = router.query;
 
   useEffect(() => {
-    getSingleGame(firebaseKey).then(setEditItem);
+    getSingleUser(firebaseKey).then(setEditItem);
   // eslint-disable-next-line camelcase
   }, [firebaseKey]);
 
-  return (<GameRankForm obj={editItem} />);
+  return (<UserBioForm obj={editItem} />);
 }

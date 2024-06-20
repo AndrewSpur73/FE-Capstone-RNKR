@@ -3,8 +3,8 @@ import React, { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
 import { Button, Card } from 'react-bootstrap';
 import Link from 'next/link';
-import viewGameDetails from '../../components/api/mergedData';
-import { deleteGame } from '../../components/api/gameData';
+import { deleteGame } from '../../api/gameData';
+import viewGameDetails from '../../api/mergedData';
 
 export default function ViewGame() {
   const [gameDetails, setGameDetails] = useState({});
@@ -32,7 +32,7 @@ export default function ViewGame() {
         <Card.Img variant="top" src={gameDetails.rankObject?.image} alt={gameDetails.rankObject?.rank_name} style={{ height: '200px', width: '200px' }} />
         <Card.Title>Description: {gameDetails.description}</Card.Title>
         <Link href={`/gamerank/edit/${gameDetails.game_id}`} passHref>
-          <Button type="button" class="btn btn-success">Edit Game Rank</Button>
+          <Button type="button" className="btn btn-success">Edit Game Rank</Button>
         </Link>
         <Button variant="danger" onClick={deleteThisGame} className="m-2">
           Delete Game
