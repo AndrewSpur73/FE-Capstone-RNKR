@@ -19,9 +19,8 @@ RNKR is an application that allows a user to keep up with all their games, speci
 - More detailed information of games can be viewed by clicking the "view details" button on each card.
 - A profile page will track the user's name, last login, and images of the currently saved games in their library. This page can be shared with friends to find games they both already have.
 - The logo in the navigation bar takes the user back to the home view.
-- 
 
-## Video Walkthrough of APP NAME
+## Video Walkthrough of RNKR
 https://www.loom.com/share/1edd9c46ba504cdd92536cbb4139d9e7?sid=33e97cee-1000-4c98-b16e-c9cc702f612d
 
 ## Relevant Links <!-- Link to all the things that are required outside of the ones that have their own section -->
